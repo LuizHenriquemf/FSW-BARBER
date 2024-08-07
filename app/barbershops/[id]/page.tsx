@@ -1,6 +1,8 @@
 import PhoneItem from "@/app/_components/phone-item";
 import ServiceItem from "@/app/_components/service.item";
+import SidebarSheet from "@/app/_components/sidebar-sheet";
 import { Button } from "@/app/_components/ui/button";
+import { Sheet, SheetTrigger } from "@/app/_components/ui/sheet";
 import { db } from "@/app/_lib/prisma";
 import { ChevronLeftIcon, MapPinIcon, MenuIcon, Phone, PhoneIcon, Smartphone, StarIcon } from "lucide-react";
 import Image from "next/image";
@@ -36,13 +38,18 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
                 <Image alt={barbershop.name} src={barbershop?.imageUrl} fill className="object-cover" />
                 <Button size="icon" variant="secondary" className="absolute top-4 left-4" asChild>
                     <Link href="/">
-                        <ChevronLeftIcon /></Link>
+                        <ChevronLeftIcon />
+                    </Link>
                 </Button>
 
-                <Button size="icon" variant="secondary" className="absolute top-4 right-4">
-                    <MenuIcon />
-                </Button>
-
+                <Sheet>
+                    <SheetTrigger asChild>
+                        <Button size="icon" variant="outline" className="absolute right-4 top-4">
+                            <MenuIcon />
+                        </Button>
+                    </SheetTrigger>
+                    <SidebarSheet />
+                </Sheet>
             </div>
 
             {/* TÍTULO */}
