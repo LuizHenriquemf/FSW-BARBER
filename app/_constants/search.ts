@@ -1,5 +1,5 @@
 interface QuickSearchOptions {
-    imageUrl: String;
+    imageUrl: string;
     title: string
 }
 
