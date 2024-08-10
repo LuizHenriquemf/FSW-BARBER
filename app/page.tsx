@@ -38,9 +38,13 @@ const Home = async () => {
           {quickSearchOptions.map(option => (
             <Button className="gap-2" variant="secondary" key={option.title} asChild>
               <Link href={`/barbershops?service=${option.title}`}>
-                <Image src={option.imageUrl} width={16} height={16} alt={option.title} />
+                <Image src={option.imageUrl}
+                  width={16}
+                  height={16}
+                  alt={option.title}
+                />
+                {option.title}
               </Link>
-              {option.title}
             </Button>
           ))}
         </div>
@@ -64,7 +68,7 @@ const Home = async () => {
           {barbershops.map(barbershop => <BarbershopItem key={barbershop.id} barbershop={barbershop} />)}
         </div>
 
-        <h2 className="mb-3 mt-6 uppercase text-gray-400 font-bold text-xs ">
+        <h2 className="mb-3 mt-6 uppercase text-gray-400 font-bold text-xs">
           Populares
         </h2>
         <div className="flex gap-4 overflow-auto [&::-webkit-scrollbar]:hidden">
