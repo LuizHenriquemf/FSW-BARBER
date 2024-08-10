@@ -6,7 +6,7 @@ import { SheetClose, SheetContent, SheetHeader, SheetTitle } from "./ui/sheet";
 import { quickSearchOptions } from "../_constants/search";
 import Link from "next/link";
 import Image from "next/image";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
+import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { Avatar, AvatarImage } from "./ui/avatar";
 import SignInDialog from "./sign-in-dialog";
@@ -92,14 +92,14 @@ const SidebarSheet = () => {
                 )}
             </div>
 
-            <div className="py-5 flex flex-col gap-2" onClick={handleLogoutClick}>
-                <Button className="justify-start gap-2" variant="ghost">
-                    <LogOutIcon />
-                    Sair da conta
-                </Button>
-            </div>
-
-
+            {data?.user && (
+                <div className="py-5 flex flex-col gap-2" onClick={handleLogoutClick}>
+                    <Button className="justify-start gap-2" variant="ghost">
+                        <LogOutIcon />
+                        Sair da conta
+                    </Button>
+                </div>
+            )}
         </SheetContent>
     );
 }
