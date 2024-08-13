@@ -25,8 +25,6 @@ const SidebarSheet = () => {
             </SheetHeader>
 
             <div className="py-5 border-b border-solid flex items-center gap-3 justify-between">
-
-
                 {data?.user ? (
                     <div className="flex items-center gap-2">
                         <Avatar>
@@ -66,11 +64,13 @@ const SidebarSheet = () => {
                         </Link>
                     </Button>
                 </SheetClose>
-                <Button className="gap-2 justify-start" variant="ghost" asChild>
-                    <Link href="/bookings">
-                        <CalendarIcon size={18} />
-                        Agendamentos</Link>
-                </Button>
+                {data?.user && (
+                    <Button className="gap-2 justify-start" variant="ghost" asChild>
+                        <Link href="/bookings">
+                            <CalendarIcon size={18} />
+                            Agendamentos</Link>
+                    </Button>
+                )}
             </div>
 
             <div className="py-5 flex flex-col gap-2 border-b border-solid">
